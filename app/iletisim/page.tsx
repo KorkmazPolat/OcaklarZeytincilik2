@@ -12,18 +12,17 @@ export default function IletisimPage() {
   return (
     <div className="bg-[var(--color-krem)] min-h-screen pb-12">
       {/* Hero Banner */}
-      <div className="bg-[var(--color-kahve)] relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-black/10 mix-blend-overlay"></div>
+      <div className="bg-[var(--color-saman)] relative pt-32 pb-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h1 className="font-[family-name:var(--font-playfair-display)] text-4xl md:text-5xl font-bold text-[var(--color-krem)] mb-4">
+          <h1 className="font-[family-name:var(--font-playfair-display)] text-4xl md:text-5xl font-bold text-[var(--color-kahve)] mb-4">
             İletişim & Konum
           </h1>
-          <nav className="flex items-center justify-center gap-2 text-[var(--color-saman)] text-sm font-medium">
-            <Link href="/" className="hover:text-white transition-colors">
+          <nav className="flex items-center justify-center gap-2 text-[var(--color-kahve)]/70 text-sm font-medium">
+            <Link href="/" className="hover:text-[var(--color-zeytun)] transition-colors">
               Ana Sayfa
             </Link>
             <ChevronRight className="w-4 h-4 opacity-50" />
-            <span className="text-white opacity-90">İletişim</span>
+            <span className="text-[var(--color-kahve)] opacity-90">İletişim</span>
           </nav>
         </div>
       </div>
