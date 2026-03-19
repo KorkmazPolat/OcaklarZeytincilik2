@@ -19,7 +19,7 @@ export default function ContactMap() {
         <div className="rounded-2xl overflow-hidden shadow-xl h-[400px] relative border-4 border-white bg-[#E8DCC8]">
           <iframe
             title="Ocaklar Zeytincilik Harita"
-            src="https://maps.google.com/maps?q=Ocaklar,+Bal%C4%B1kesir&t=&z=14&ie=UTF8&iwloc=&output=embed"
+            src="https://maps.google.com/maps?q=40.443001,27.755372&t=&z=15&ie=UTF8&iwloc=&output=embed"
             className="w-full h-full border-0"
             allowFullScreen={false}
             loading="lazy"

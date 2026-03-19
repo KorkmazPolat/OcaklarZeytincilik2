@@ -5,6 +5,6 @@ export const SITE_CONFIG = {
   phone: "+90 555 123 45 67",
   whatsapp: "+905551234567",
   whatsappBase: "https://wa.me/905551234567?text=",
-  googleMapsUrl: "https://maps.google.com/?q=Ocaklar,Balıkesir",
+  googleMapsUrl: "https://maps.google.com/?q=40.443001,27.755372",
   workingHours: "Hafta içi 08:00–18:00",
 };
