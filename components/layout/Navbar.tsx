@@ -28,13 +28,13 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-[var(--color-krem)]/90 backdrop-blur-md shadow-sm py-3 text-[var(--color-kahve)]"
-          : "bg-transparent py-5 text-[var(--color-krem)]"
+          : "bg-transparent py-5 text-[var(--color-kahve)]"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2 group">
-            <Leaf className={`w-8 h-8 transition-transform group-hover:scale-110 ${scrolled ? "text-[var(--color-zeytun)]" : "text-[var(--color-krem)]"}`} />
+            <Leaf className={`w-8 h-8 transition-transform group-hover:scale-110 text-[var(--color-zeytun)]`} />
             <span className="font-[family-name:var(--font-playfair-display)] font-bold text-lg md:text-xl tracking-wide">
               {SITE_CONFIG.shopName}
             </span>
@@ -46,11 +46,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`font-medium transition-colors ${
-                  scrolled 
-                    ? "hover:text-[var(--color-zeytun)] text-[var(--color-kahve)]" 
-                    : "hover:text-white/80 text-[var(--color-krem)]"
-                }`}
+                className={`font-medium transition-colors hover:text-[var(--color-zeytun)] text-[var(--color-kahve)]`}
               >
                 {link.name}
               </Link>
@@ -62,7 +58,7 @@ export default function Navbar() {
             className="md:hidden"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-6 h-6 text-[var(--color-kahve)]" /> : <Menu className="w-6 h-6 text-[var(--color-kahve)]" />}
           </button>
         </div>
       </div>

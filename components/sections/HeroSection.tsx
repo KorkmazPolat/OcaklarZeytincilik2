@@ -1,28 +1,32 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative h-[85vh] min-h-[550px] flex items-center justify-center overflow-hidden pb-16">
-      {/* Background Image / Placeholder Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-zeytun)] to-[var(--color-kahve)]">
-        {/* Placeholder for actual image:
-        <Image src="/images/hero-bg.jpg" fill alt="Zeytinlik" className="object-cover" />
-        */}
+    <section className="relative h-[85vh] min-h-[550px] flex items-center justify-center overflow-hidden pb-16 bg-[var(--color-krem)]">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image 
+          src="/images/hero-bg.jpg" 
+          fill 
+          alt="Zeytincilik" 
+          className="object-cover object-center opacity-90"
+          priority
+        />
+        {/* Subtle overlay to ensure text readability if needed, mostly transparent */}
+        <div className="absolute inset-0 bg-white/20 backdrop-blur-[2px]" />
       </div>
-      
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/40" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto flex flex-col items-center mt-12">
-        <span className="font-[family-name:var(--font-dancing-script)] text-[var(--color-saman)] text-2xl md:text-3xl mb-4 opacity-90 block">
+        <span className="font-[family-name:var(--font-dancing-script)] text-[var(--color-zeytun)] text-3xl md:text-4xl mb-4 opacity-90 block font-bold">
           Balıkesir, Ocaklar
         </span>
-        <h1 className="font-[family-name:var(--font-playfair-display)] text-5xl md:text-7xl font-bold text-[var(--color-krem)] mb-6 drop-shadow-lg leading-tight">
+        <h1 className="font-[family-name:var(--font-playfair-display)] text-5xl md:text-7xl font-bold text-[var(--color-kahve)] mb-6 drop-shadow-sm leading-tight">
           Doğanın En Saf <br className="hidden md:block" /> Lezzetleri
         </h1>
-        <p className="text-lg md:text-xl text-[var(--color-krem)]/90 mb-10 max-w-2xl font-light">
+        <p className="text-lg md:text-xl text-[var(--color-kahve)]/90 mb-10 max-w-2xl font-medium">
           Ocaklar&apos;dan sofralarınıza, el emeği ve doğallıkla hazırlanan zeytin ve zeytinyağı ürünleri.
         </p>
 
