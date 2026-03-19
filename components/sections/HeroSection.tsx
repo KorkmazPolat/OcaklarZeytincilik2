@@ -47,7 +47,7 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll Down Indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center animate-bounce text-[var(--color-kahve)]/50">
+      <div className="absolute bottom-[6rem] left-1/2 -translate-x-[40%] md:-translate-x-1/2 z-30 flex flex-col items-center animate-bounce text-[var(--color-kahve)]/50">
         <span className="text-sm font-bold tracking-widest uppercase mb-2">Aşağı Kaydır</span>
         <ChevronDown className="w-6 h-6" />
       </div>
