@@ -10,7 +10,7 @@ export default function HeroSection() {
       <div className="absolute right-0 top-0 w-1/3 h-full bg-[var(--color-saman)] opacity-30 z-0 hidden lg:block" />
 
       {/* Absolutely positioned image on the right */}
-      <div className="absolute right-0 bottom-[4rem] w-full md:w-1/2 h-[70vh] md:h-[85vh] z-10 pointer-events-none opacity-40 md:opacity-100 flex items-end justify-end md:justify-center">
+      <div className="absolute right-0 bottom-0 w-full md:w-1/2 h-[70vh] md:h-[85vh] z-10 pointer-events-none opacity-40 md:opacity-100 flex items-end justify-end md:justify-center">
         <div className="relative w-full h-full max-w-[600px] xl:max-w-[700px]">
           <Image 
             src="/images/hero-bg.png" 
