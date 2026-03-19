@@ -37,7 +37,19 @@ export default function ProductCard({ product }: ProductCardProps) {
         <h3 className="font-[family-name:var(--font-playfair-display)] text-xl font-bold text-[var(--color-kahve)] mb-2">
           {product.name}
         </h3>
-        <p className="text-[var(--color-kahve)]/80 text-sm mb-6 flex-grow line-clamp-2">
+        
+        {/* Options / Pricing pill */}
+        {product.options && product.options.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-3">
+            {product.options.map((opt, i) => (
+              <span key={i} className="bg-white text-[var(--color-toprak)] border border-[var(--color-saman)] rounded-md px-2 py-0.5 text-xs font-semibold">
+                {opt}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <p className="text-[var(--color-kahve)]/80 text-sm mb-6 flex-grow line-clamp-3">
           {product.description}
         </p>
 
