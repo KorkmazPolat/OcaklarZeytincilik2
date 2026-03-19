@@ -11,13 +11,12 @@ export default function HeroSection() {
 
       {/* Absolutely positioned image on the right */}
       <div className="absolute right-0 bottom-[4rem] w-full md:w-1/2 h-[70vh] md:h-[85vh] z-10 pointer-events-none opacity-40 md:opacity-100 flex items-end justify-end md:justify-center">
-        {/* We use contrast and brightness alongside mix-blend-multiply to bleach the off-white background of the image to pure white, making it 100% transparent when multiplied! */}
         <div className="relative w-full h-full max-w-[600px] xl:max-w-[700px]">
           <Image 
             src="/images/hero-bg.png" 
             fill 
             alt="Zeytin Ustasından Doğal Ürünler" 
-            className="object-contain object-bottom mix-blend-multiply filter contrast-125 brightness-[1.03]"
+            className="object-contain object-bottom scale-100 hover:scale-[1.03] transition-transform duration-700"
             priority
           />
         </div>
