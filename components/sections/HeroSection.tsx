@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+    <section className="relative h-[85vh] min-h-[550px] flex items-center justify-center overflow-hidden pb-16">
       {/* Background Image / Placeholder Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-zeytun)] to-[var(--color-kahve)]">
         {/* Placeholder for actual image:
@@ -15,7 +15,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto flex flex-col items-center">
+      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto flex flex-col items-center mt-12">
         <span className="font-[family-name:var(--font-dancing-script)] text-[var(--color-saman)] text-2xl md:text-3xl mb-4 opacity-90 block">
           Balıkesir, Ocaklar
         </span>
@@ -33,6 +33,12 @@ export default function HeroSection() {
           Ürünleri Keşfet
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </Link>
+      </div>
+
+      {/* Scroll Down Indicator */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center animate-bounce text-[var(--color-krem)]/70">
+        <span className="text-sm font-medium tracking-widest uppercase mb-2">Aşağı Kaydır</span>
+        <ChevronDown className="w-6 h-6" />
       </div>
     </section>
   );
