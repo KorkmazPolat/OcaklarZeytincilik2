@@ -80,7 +80,7 @@ export default function IletisimPage() {
               className="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1DA851] text-white py-4 px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 font-bold text-lg"
             >
               <MessageCircle className="w-6 h-6" />
-              WhatsApp'tan Yazın
+              WhatsApp&apos;tan Yazın
             </a>
           </div>
 

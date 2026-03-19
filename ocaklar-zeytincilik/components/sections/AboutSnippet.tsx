@@ -22,7 +22,7 @@ export default function AboutSnippet() {
               <span className="text-[var(--color-toprak)]">Toprağın Bereketi</span>
             </h2>
             <p className="text-[var(--color-kahve)]/80 text-lg leading-relaxed mb-8">
-              Ocaklar'ın bereketli topraklarında yıllardır süregelen zeytin yetiştiriciliği geleneğini ilk günkü heyecanımızla devam ettiriyoruz. Amacımız, en kaliteli ve doğal ürünleri sofranıza getirerek sağlığınıza değer katmak. Her bir zeytin tanesinde büyük bir emek ve sevgi saklı.
+              Ocaklar&apos;ın bereketli topraklarında yıllardır süregelen zeytin yetiştiriciliği geleneğini ilk günkü heyecanımızla devam ettiriyoruz. Amacımız, en kaliteli ve doğal ürünleri sofranıza getirerek sağlığınıza değer katmak. Her bir zeytin tanesinde büyük bir emek ve sevgi saklı.
             </p>
 
             <ul className="flex flex-col gap-4 mb-8">

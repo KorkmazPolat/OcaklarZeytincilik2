@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ShoppingBag } from "lucide-react";
 import { Product } from "@/data/products";
 import { SITE_CONFIG } from "@/lib/constants";

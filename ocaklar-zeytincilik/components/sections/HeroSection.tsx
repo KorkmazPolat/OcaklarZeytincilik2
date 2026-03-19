@@ -23,7 +23,7 @@ export default function HeroSection() {
           Doğanın En Saf <br className="hidden md:block" /> Lezzetleri
         </h1>
         <p className="text-lg md:text-xl text-[var(--color-krem)]/90 mb-10 max-w-2xl font-light">
-          Ocaklar'dan sofralarınıza, el emeği ve doğallıkla hazırlanan zeytin ve zeytinyağı ürünleri.
+          Ocaklar&apos;dan sofralarınıza, el emeği ve doğallıkla hazırlanan zeytin ve zeytinyağı ürünleri.
         </p>
 
         <Link

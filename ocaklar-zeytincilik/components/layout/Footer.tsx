@@ -19,7 +19,7 @@ export default function Footer() {
               {SITE_CONFIG.tagline}
             </p>
             <p className="text-[var(--color-saman)] opacity-80 max-w-xs">
-              Ocaklar'dan sofralarınıza, doğanın bize sunduğu en değerli miras olan zeytin ve zeytinyağını ilk günkü saflığıyla ulaştırıyoruz.
+              Ocaklar&apos;dan sofralarınıza, doğanın bize sunduğu en değerli miras olan zeytin ve zeytinyağını ilk günkü saflığıyla ulaştırıyoruz.
             </p>
           </div>
 
