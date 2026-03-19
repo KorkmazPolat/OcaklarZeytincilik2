@@ -16,10 +16,10 @@ export default function ContactMap() {
           </p>
         </div>
 
-        <div className="rounded-2xl overflow-hidden shadow-xl h-[400px] relative border-4 border-white bg-gray-200">
+        <div className="rounded-2xl overflow-hidden shadow-xl h-[400px] relative border-4 border-white bg-[#E8DCC8]">
           <iframe
-            title="Google Maps Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d3032.5516086884643!2d27.7656111!3d40.4566389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b6baaaaa000000%3A0x14b6baaaaa000000!2sOcaklar%2C%20Bal%C4%B1kesir!5e0!3m2!1str!2str!4v1711234567890!5m2!1str!2str"
+            title="Ocaklar Zeytincilik Harita"
+            src="https://maps.google.com/maps?q=Ocaklar,+Bal%C4%B1kesir&t=&z=14&ie=UTF8&iwloc=&output=embed"
             className="w-full h-full border-0"
             allowFullScreen={false}
             loading="lazy"
