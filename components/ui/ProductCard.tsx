@@ -1,68 +1,42 @@
-import { ShoppingBag } from "lucide-react";
-import { Product } from "@/data/products";
-import { SITE_CONFIG } from "@/lib/constants";
+"use client";
+import Link from "next/link";
+import { useState } from "react";
+import { ShoppingBag, Check, Plus, Minus } from "lucide-react";
+import type { Product } from "@/data/products";
+import { productMessage, whatsappLink } from "@/lib/whatsapp";
+import { useOrder } from "@/components/order/OrderProvider";
+import ProductVisual from "./ProductVisual";
 import CategoryBadge from "./CategoryBadge";
-
-interface ProductCardProps {
-  product: Product;
-}
-
-export default function ProductCard({ product }: ProductCardProps) {
-  const whatsappUrl = `${SITE_CONFIG.whatsappBase}${encodeURIComponent(product.whatsappMsg)}`;
-
-  return (
-    <div className="bg-[var(--color-krem)] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group flex flex-col h-full border border-[var(--color-saman)]/50">
-      {/* Image Container with pseudo-texture */}
-      <div className="relative aspect-square w-full bg-[#E8DCC8] overflow-hidden">
-        {/* Placeholder gradient for missing images */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-zeytun)]/20 to-[var(--color-toprak)]/20 mix-blend-overlay"></div>
-        {/*
-          When real images are available:
-          <Image
-            src={product.image}
-            alt={product.name}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-        */}
-        <div className="absolute inset-0 flex items-center justify-center text-[var(--color-kahve)]/20 font-bold text-4xl transform -rotate-12 pointer-events-none">
-          Ocaklar
-        </div>
-        <div className="absolute top-4 left-4 z-10">
-          <CategoryBadge category={product.category} />
+export default function ProductCard({ product, controlsOnly = false, headingLevel = 3 }: { product: Product; controlsOnly?: boolean; headingLevel?: 2 | 3 }) {
+  const [option, setOption] = useState(product.options?.[0] ?? "");
+  const [quantity, setQuantity] = useState(1);
+  const [added, setAdded] = useState(false);
+  const [feedback, setFeedback] = useState("");
+  const { addItem } = useOrder();
+  const Heading = headingLevel === 2 ? "h2" : "h3";
+  return <article className="product-card group flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--color-saman)] bg-white">
+    {!controlsOnly && <div className="relative"><ProductVisual category={product.category} name={product.name} /><div className="absolute left-4 top-4"><CategoryBadge category={product.category} /></div></div>}
+    <div className="flex grow flex-col p-5 sm:p-6">
+      {!controlsOnly && <Heading className="mb-3 font-[family-name:var(--font-playfair-display)] text-xl font-bold"><Link href={`/urunler/${encodeURIComponent(product.id)}`} className="hover:text-[var(--color-zeytun)]">{product.name}</Link></Heading>}
+      {!controlsOnly && <p className="mb-5 grow text-sm leading-relaxed text-[var(--color-kahve)]/80">{product.description}</p>}
+      {product.options?.length ? <fieldset className="mb-4">
+        <legend className="mb-2 text-xs font-semibold">Ambalaj seçimi</legend>
+        <div className="flex flex-wrap gap-2">{product.options.map((value) => <button key={value} type="button" aria-pressed={option === value}
+          onClick={() => { setOption(value); setAdded(false); setFeedback(""); }}
+          className={`rounded-lg border px-3 py-2 text-xs font-bold transition-colors ${option === value ? "border-[var(--color-zeytun)] bg-[var(--color-zeytun)] text-white" : "border-[var(--color-saman)] hover:bg-[var(--color-krem)]"}`}>{value}</button>)}</div>
+      </fieldset> : null}
+      <div className="mb-4 flex items-center justify-between"><span className="text-sm font-semibold">Adet</span>
+        <div className="flex items-center rounded-lg border border-[var(--color-saman)]">
+          <button type="button" disabled={quantity === 1} aria-label={`${product.name} adet azalt`} onClick={() => {setQuantity(quantity - 1);setAdded(false); setFeedback("");}} className="p-3 disabled:opacity-30"><Minus size={16} /></button>
+          <output className="min-w-8 text-center text-sm" aria-label="Seçilen adet">{quantity}</output>
+          <button type="button" disabled={quantity === 99} aria-label={`${product.name} adet artır`} onClick={() => {setQuantity(quantity + 1);setAdded(false); setFeedback("");}} className="p-3 disabled:opacity-30"><Plus size={16} /></button>
         </div>
       </div>
-
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="font-[family-name:var(--font-playfair-display)] text-xl font-bold text-[var(--color-kahve)] mb-2">
-          {product.name}
-        </h3>
-        
-        {/* Options / Pricing pill */}
-        {product.options && product.options.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-3">
-            {product.options.map((opt, i) => (
-              <span key={i} className="bg-white text-[var(--color-toprak)] border border-[var(--color-saman)] rounded-md px-2 py-0.5 text-xs font-semibold">
-                {opt}
-              </span>
-            ))}
-          </div>
-        )}
-
-        <p className="text-[var(--color-kahve)]/80 text-sm mb-6 flex-grow line-clamp-3">
-          {product.description}
-        </p>
-
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 w-full bg-[var(--color-toprak)] hover:bg-[var(--color-zeytun)] text-[var(--color-krem)] py-3 px-4 rounded-lg font-medium transition-colors cursor-pointer"
-        >
-          <ShoppingBag className="w-5 h-5" />
-          Sipariş Ver
-        </a>
-      </div>
+      <a href={whatsappLink(productMessage(product.name, option, quantity))} target="_blank" rel="noopener noreferrer" aria-label={`${product.name} için WhatsApp'tan fiyat sor`}
+        className="flex items-center justify-center gap-2 rounded-xl bg-[var(--color-zeytun)] px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-[var(--color-kahve)]"><ShoppingBag size={18} /> WhatsApp’tan fiyat sor</a>
+      <button type="button" onClick={() => { const count = addItem(product.id, option, quantity); setAdded(count > 0); setFeedback(count === quantity ? quantity + " adet listeye eklendi." : count > 0 ? count + " adet eklendi. Bu ambalaj için en fazla 99 adet seçebilirsiniz." : "Bu ambalaj için 99 adet sınırına ulaştınız."); }} className="mt-2 flex items-center justify-center gap-2 rounded-xl border border-[var(--color-saman)] px-4 py-3 text-sm font-semibold hover:bg-[var(--color-krem)]">
+        {added ? <Check size={16} /> : <Plus size={16} />} {added ? "Listeye eklendi · tekrar ekle" : "Sipariş listeme ekle"}
+      </button><p role="status" className="mt-2 min-h-5 text-center text-xs text-[var(--color-zeytun)]">{feedback}</p>
     </div>
-  );
+  </article>;
 }

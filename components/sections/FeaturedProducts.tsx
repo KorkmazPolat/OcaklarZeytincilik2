@@ -4,10 +4,12 @@ import { products } from "@/data/products";
 import ProductCard from "@/components/ui/ProductCard";
 
 export default function FeaturedProducts() {
-  const featuredProducts = products.filter((p) => p.featured).slice(0, 6);
+  const featured = products.filter((p) => p.featured);
+  const firstByCategory = featured.filter((p, i) => featured.findIndex((item) => item.category === p.category) === i);
+  const featuredProducts = [...firstByCategory, ...featured.filter((p) => !firstByCategory.includes(p))].slice(0, 6);
 
   return (
-    <section className="pb-20 bg-[var(--color-krem)] relative z-20">
+    <section id="secilen-urunler" className="scroll-mt-28 pb-20 bg-[var(--color-krem)] relative z-20">
       {/* Negative margin to overlap the Hero section slightly */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20">
         

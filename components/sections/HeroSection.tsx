@@ -5,23 +5,24 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 export default function HeroSection() {
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden pb-16 bg-[var(--color-krem)]">
-      
+
       {/* Absolutely positioned image on the right */}
       <div className="absolute right-0 md:right-[5%] lg:right-[8%] bottom-0 w-full md:w-1/2 h-[75vh] md:h-[85vh] z-10 pointer-events-none opacity-40 md:opacity-100 flex items-end justify-end md:justify-center">
         <div className="relative w-full h-full max-w-[600px] xl:max-w-[700px]">
-          <Image 
-            src="/images/hero-bg.png" 
-            fill 
-            alt="Zeytin Ustasından Doğal Ürünler" 
+          <Image
+            src="/images/hero.webp"
+            fill
+            alt="Zeytin Ustasından Doğal Ürünler"
             className="object-contain object-bottom scale-100 hover:scale-[1.03] transition-transform duration-700"
-            priority
+            preload
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-20">
         <div className="flex flex-col md:flex-row items-center justify-start mt-16 md:mt-12">
-          
+
           {/* Left Text Content */}
           <div className="flex-1 flex flex-col items-center text-center md:items-start md:text-left pt-12 md:pt-0 max-w-xl">
             <span className="font-[family-name:var(--font-dancing-script)] text-[var(--color-zeytun)] text-3xl md:text-4xl mb-4 opacity-100 block font-bold">
@@ -47,10 +48,10 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll Down Indicator */}
-      <div className="absolute bottom-[6rem] left-1/2 -translate-x-[40%] md:-translate-x-1/2 z-30 flex flex-col items-center animate-bounce text-[var(--color-kahve)]/50">
+      <Link href="#secilen-urunler" aria-label="Seçme ürünlere git" className="absolute bottom-24 left-1/2 -translate-x-[40%] md:-translate-x-1/2 z-30 flex flex-col items-center motion-safe:animate-bounce text-[var(--color-kahve)]/50">
         <span className="text-sm font-bold tracking-widest uppercase mb-2">Aşağı Kaydır</span>
         <ChevronDown className="w-6 h-6" />
-      </div>
+      </Link>
     </section>
   );
 }

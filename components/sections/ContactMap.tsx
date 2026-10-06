@@ -1,43 +1,28 @@
+"use client";
+import { useState } from "react";
+import Link from "next/link";
+import { MapPin, Navigation } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
-
 export default function ContactMap() {
-  return (
-    <section className="py-20 bg-[var(--color-krem)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="font-[family-name:var(--font-dancing-script)] text-[var(--color-zeytun)] text-xl font-medium block mb-2">
-            Ziyaret Edin
-          </span>
-          <h2 className="font-[family-name:var(--font-playfair-display)] text-4xl font-bold text-[var(--color-kahve)] mb-4">
-            Bize Ulaşın
-          </h2>
-          <p className="text-[var(--color-kahve)]/80 text-lg">
-            Sizleri doğalı yerinde görmek ve tatmak için dükkanımıza bekliyoruz.
-          </p>
-        </div>
-
-        <div className="rounded-2xl overflow-hidden shadow-xl h-[400px] relative border-4 border-white bg-[#E8DCC8]">
-          <iframe
-            title="Ocaklar Zeytincilik Harita"
-            src="https://maps.google.com/maps?q=40.443001,27.755372&t=&z=15&ie=UTF8&iwloc=&output=embed"
-            className="w-full h-full border-0"
-            allowFullScreen={false}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-
-        <div className="mt-8 text-center">
-          <a
-            href={SITE_CONFIG.googleMapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white text-[var(--color-kahve)] border border-[var(--color-saman)] hover:border-[var(--color-zeytun)] hover:text-[var(--color-zeytun)] font-semibold py-3 px-8 rounded-full transition-all shadow-sm hover:shadow-md"
-          >
-            Google Haritalarda Aç
-          </a>
-        </div>
+  const [loaded, setLoaded] = useState(false);
+  return <section className="bg-[var(--color-krem)] py-16" aria-labelledby="map-title">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto mb-8 max-w-2xl text-center">
+        <p className="mb-3 font-[family-name:var(--font-dancing-script)] text-xl text-[var(--color-zeytun)]">Ziyaret edin</p>
+        <h2 id="map-title" className="mb-4 font-[family-name:var(--font-playfair-display)] text-3xl font-bold md:text-4xl">Ocaklar’da buluşalım</h2>
+        <p className="leading-relaxed opacity-80">{SITE_CONFIG.address}</p>
       </div>
-    </section>
-  );
+      <div className="relative flex min-h-80 items-center justify-center overflow-hidden rounded-3xl border border-[var(--color-saman)] bg-[var(--color-saman)] p-6">
+        {loaded ? <iframe title="Ocaklar Zeytincilik haritası" src={SITE_CONFIG.googleMapsEmbedUrl} className="absolute inset-0 h-full w-full border-0" loading="lazy" referrerPolicy="no-referrer" /> :
+          <div className="max-w-md text-center">
+            <MapPin className="mx-auto mb-4 h-12 w-12 text-[var(--color-zeytun)]" strokeWidth={1.5} />
+            <h3 className="mb-3 text-xl font-bold">Yolunuzu bize çevirin</h3>
+            <p className="mb-5 text-sm leading-relaxed">Harita, siz açtığınızda Google üzerinden yüklenir.</p>
+            <button onClick={() => setLoaded(true)} className="rounded-xl bg-[var(--color-zeytun)] px-6 py-3 font-semibold text-white">Haritayı yükle</button>
+            <Link href="/gizlilik" className="mt-4 block text-xs underline">Harita ve gizlilik hakkında</Link>
+          </div>}
+      </div>
+      <div className="mt-6 text-center"><a href={SITE_CONFIG.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[var(--color-saman)] bg-white px-6 py-3 font-semibold"><Navigation size={18} /> Google Haritalar’da yol tarifi</a></div>
+    </div>
+  </section>;
 }

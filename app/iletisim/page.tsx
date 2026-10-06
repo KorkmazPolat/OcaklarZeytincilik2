@@ -1,12 +1,12 @@
+import { pageMetadata } from "@/lib/metadata";
+import { whatsappLink } from "@/lib/whatsapp";
+import ContactComposer from "@/components/sections/ContactComposer";
 import ContactMap from "@/components/sections/ContactMap";
 import { SITE_CONFIG } from "@/lib/constants";
 import { MessageCircle, MapPin, Phone, Clock, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
-export const metadata = {
-  title: "İletişim & Konum | Ocaklar Zeytincilik",
-  description: "Ocaklar Zeytincilik'e ulaşın. Balıkesir, Ocaklar köyünde bulabilirsiniz.",
-};
+export const metadata = pageMetadata("İletişim ve konum", "Ocaklar Zeytincilik ile iletişime geçin. Ürün, stok ve teslimat sorularınızı WhatsApp üzerinden bize iletin.", "/iletisim");
 
 export default function IletisimPage() {
   return (
@@ -73,10 +73,10 @@ export default function IletisimPage() {
             </ul>
 
             <a
-              href={SITE_CONFIG.whatsappBase + "Merhaba,%20bilgi%20almak%20istiyorum."}
+              href={whatsappLink("Merhaba, bilgi almak istiyorum.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1DA851] text-white py-4 px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 font-bold text-lg"
+              className="inline-flex items-center justify-center gap-3 bg-[#187744] hover:bg-[#145e36] text-white py-4 px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 font-bold text-lg"
             >
               <MessageCircle className="w-6 h-6" />
               WhatsApp&apos;tan Yazın
@@ -84,13 +84,7 @@ export default function IletisimPage() {
           </div>
 
           <div className="flex flex-col justify-center">
-            {/* Beautiful generic illustration or placeholder for contact side */}
-            <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#E8DCC8] to-white border-8 border-white">
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center text-[var(--color-kahve)]/40 pointer-events-none">
-                <MessageCircle className="w-32 h-32 mb-6 text-[var(--color-zeytun)]/20" />
-                <span className="font-[family-name:var(--font-playfair-display)] font-bold text-3xl">Gelenekten Sofranıza</span>
-              </div>
-            </div>
+            <ContactComposer />
           </div>
 
         </div>

@@ -8,7 +8,7 @@
   --color-saman: #E8DCC8;
   --color-zeytin-ac: #7A8C5E;
   --font-playfair: var(--font-playfair-display);
-  --font-lato: var(--font-lato);
+  --font-sans: var(--font-lato);
   --font-dancing: var(--font-dancing-script);
 }
 
@@ -28,3 +28,15 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+:focus-visible { outline: 3px solid var(--color-zeytun); outline-offset: 4px; }
+button, summary, select { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+.product-card { transition: box-shadow 200ms, transform 200ms; }
+.product-card:hover { box-shadow: 0 12px 30px #3d2b1f12; transform: translateY(-3px); }
+.skip-link { position: fixed; left: 1rem; top: -100px; z-index: 100; padding: 12px 20px; background: white; border-radius: 8px; }
+.skip-link:focus { top: 1rem; }
+#main-content { scroll-margin-top: 100px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+footer :focus-visible { outline-color: var(--color-krem); }

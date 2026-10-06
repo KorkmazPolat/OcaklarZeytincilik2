@@ -1,3 +1,4 @@
+import { whatsappLink } from "@/lib/whatsapp";
 import Link from "next/link";
 import { Leaf, MapPin, Phone, MessageCircle } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
@@ -25,7 +26,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="flex flex-col">
-            <h3 className="font-[family-name:var(--font-playfair-display)] text-[var(--color-toprak)] font-semibold text-lg mb-6">Hızlı Bağlantılar</h3>
+            <h3 className="font-[family-name:var(--font-playfair-display)] text-[var(--color-saman)] font-semibold text-lg mb-6">Hızlı Bağlantılar</h3>
             <ul className="flex flex-col gap-3">
               <li>
                 <Link href="/" className="text-[var(--color-krem)] hover:text-[var(--color-toprak)] transition-colors">Ana Sayfa</Link>
@@ -33,6 +34,8 @@ export default function Footer() {
               <li>
                 <Link href="/urunler" className="text-[var(--color-krem)] hover:text-[var(--color-toprak)] transition-colors">Ürünlerimiz</Link>
               </li>
+              <li><Link href="/siparis-ve-teslimat" className="hover:underline">Sipariş ve teslimat</Link></li>
+              <li><Link href="/gizlilik" className="hover:underline">Site kullanımı ve gizlilik</Link></li>
               <li>
                 <Link href="/iletisim" className="text-[var(--color-krem)] hover:text-[var(--color-toprak)] transition-colors">İletişim & Konum</Link>
               </li>
@@ -41,21 +44,21 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="flex flex-col">
-            <h3 className="font-[family-name:var(--font-playfair-display)] text-[var(--color-toprak)] font-semibold text-lg mb-6">İletişim</h3>
+            <h3 className="font-[family-name:var(--font-playfair-display)] text-[var(--color-saman)] font-semibold text-lg mb-6">İletişim</h3>
             <ul className="flex flex-col gap-4">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-[var(--color-zeytun)] shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-[var(--color-saman)] shrink-0 mt-0.5" />
                 <span className="text-[var(--color-krem)]">{SITE_CONFIG.address}</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-[var(--color-zeytun)] shrink-0" />
+                <Phone className="w-5 h-5 text-[var(--color-saman)] shrink-0" />
                 <a href={`tel:${SITE_CONFIG.phone.replace(/\s+/g, "")}`} className="text-[var(--color-krem)] hover:text-[var(--color-toprak)] transition-colors">
                   {SITE_CONFIG.phone}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <MessageCircle className="w-5 h-5 text-[#25D366] shrink-0" />
-                <a href={SITE_CONFIG.whatsappBase + "Merhaba,%20sitenizden%20ulaşıyorum."} target="_blank" rel="noopener noreferrer" className="text-[var(--color-krem)] hover:text-[var(--color-toprak)] transition-colors">
+                <a href={whatsappLink("Merhaba, sitenizden ulaşıyorum.")} target="_blank" rel="noopener noreferrer" className="text-[var(--color-krem)] hover:text-[var(--color-toprak)] transition-colors">
                   WhatsApp Hattı
                 </a>
               </li>

@@ -1,9 +1,7 @@
+import { pageMetadata } from "@/lib/metadata";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Ürünlerimiz | Ocaklar Zeytincilik",
-  description: "Zeytin, zeytinyağı, zeytinyağlı sabun, peynir ve daha fazlası.",
-};
+export const metadata: Metadata = pageMetadata("Ürünlerimiz", "Zeytin, zeytinyağı, doğal sabun ve peynir çeşitlerini arayın. Ambalaj ve adet seçerek fiyat bilgisi alın.", "/urunler");
 
 export default function UrunlerLayout({
   children,
